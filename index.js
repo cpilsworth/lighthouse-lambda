@@ -7,10 +7,11 @@ exports.handler = function (event, context, callback) {
     .then(({ chrome, start }) => {
       return start()
         .then((results) => {
-          // Do something with `results`
+          console.log(JSON.stringify(result));
           return chrome.kill().then(() => callback(null));
         })
         .catch((error) => {
+          console.log(error);
           // Handle errors when running Lighthouse
           return chrome.kill().then(() => callback(error));
         });
