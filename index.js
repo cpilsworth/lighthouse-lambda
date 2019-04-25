@@ -8,7 +8,7 @@ exports.handler = function (event, context, callback) {
       return start()
         .then((results) => {
           console.log(JSON.stringify(results));
-          return chrome.kill().then(() => callback(JSON.stringify(results)));
+          return chrome.kill().then(() => callback(null));
         })
         .catch((error) => {
           console.log(error);
