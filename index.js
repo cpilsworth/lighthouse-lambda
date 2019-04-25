@@ -13,7 +13,5 @@ exports.handler = async function (event, context) {
           // Handle errors when running Lighthouse
           return chrome.kill().then(() => error);
         });
-    })
-    // Handle other errors
-    .catch(callback);
+    });
 };
