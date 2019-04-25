@@ -1,4 +1,5 @@
-const createLighthouse = require('lighthouse-lambda')
+/*jshint esversion: 6 */
+const createLighthouse = require('lighthouse-lambda');
 
 exports.handler = function (event, context, callback) {
   Promise.resolve()
@@ -7,13 +8,13 @@ exports.handler = function (event, context, callback) {
       return start()
         .then((results) => {
           // Do something with `results`
-          return chrome.kill().then(() => callback(null))
+          return chrome.kill().then(() => callback(null));
         })
         .catch((error) => {
           // Handle errors when running Lighthouse
-          return chrome.kill().then(() => callback(error))
-        })
+          return chrome.kill().then(() => callback(error));
+        });
     })
     // Handle other errors
-    .catch(callback)
-}
+    .catch(callback);
+};
