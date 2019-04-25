@@ -7,9 +7,11 @@ exports.handler = async function (event, context) {
     .then(({ chrome, start }) => {
       return start()
         .then((results) => {
+          console.log( JSON.stringify(results));
           return chrome.kill().then(() => JSON.stringify(results));
         })
         .catch((error) => {
+          console.log(error);
           // Handle errors when running Lighthouse
           return chrome.kill().then(() => error);
         });
